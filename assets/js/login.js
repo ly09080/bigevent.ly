@@ -52,7 +52,7 @@ $(function () {
     //4.
     $.ajax({
       type: "POST",
-      url: "http://ajax.frontend.itheima.net/api/reguser",
+      url: "/api/reguser",
       data,
       success: function (res) {
         console.log(res);
@@ -79,7 +79,7 @@ $(function () {
     let data = $(this).serialize();
     $.ajax({
       type: "POST",
-      url: "http://ajax.frontend.itheima.net/api/login",
+      url: "/api/login",
       data,
       success: function (res) {
         if (res.status !== 0) {
@@ -90,6 +90,9 @@ $(function () {
         // layer.msg("登录成功, 即将跳转到首页");
         // 跳转页面 ==> 弹框刚出现，就跳转了（弹框关闭之后在跳转）
         // location.href = "/home/index.html";
+
+        //把token(令牌) 存储到本地
+        localStorage.setItem("token", res.token);
 
         // 上面代码的改写
         layer.msg(
