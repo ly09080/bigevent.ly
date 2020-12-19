@@ -40,17 +40,18 @@ function getUserInfo() {
       } else {
         // 没有图片
         // 展示文字头像; 还需要修改文字头像的文字（来源于name的第一个字）
-        let fist = name[0].toUpperCase();
-        $(".textAvatar").show().text(fist);
+        let first = name[0].toUpperCase();
+        $(".textAvatar").show().text(first);
         // 隐藏头像
         $(".layui-nav-img").hide();
       }
     },
     complete: function (res) {
       let data = res.responseJSON;
-      if (data.status === 1 && data.message === "身份认证失败!")
+      if (data.status === 1 && data.message === "身份认证失败!") {
         location.href = "../home/login.html";
-      localStorage.removeItem("token");
+        localStorage.removeItem("token");
+      }
     },
   });
 }

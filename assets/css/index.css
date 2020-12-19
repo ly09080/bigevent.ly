@@ -20,6 +20,9 @@
     line-height: 40px;
     /* display: none; */
 }
+.layui-nav-img{
+    display: none;
+}
 .text{
     font-size: 12px;
 }
